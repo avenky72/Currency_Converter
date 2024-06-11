@@ -1,4 +1,5 @@
 import tkinter as tk
+#import tkFont
 from tkinter import ttk
 
 from forex_python.converter import CurrencyRates
@@ -6,25 +7,29 @@ from forex_python.converter import CurrencyRates
 # Force the use of decimal
 c = CurrencyRates(force_decimal=True)
 
+#font1 = tkFont.Font(family="Helvetica",size=36,weight="bold")
+
 
 def enter_data():
-    #amount = money_entry.get()
-    #start = curr_start_combobox.get()
-    #end = curr_end_combobox.get()
-    #output = c.convert(start, end, amount)
-    #print("Starting Amount: ", amount, " Initial Currency: ", start, " End Currency: ", end, "Converted Amount: ", output)
-    print(c.get_rates('USD'))
+    amount = money_entry.get()
+    start = curr_start_combobox.get()
+    end = curr_end_combobox.get()
+    output = c.convert(start, end, amount)
+    print("Starting Amount: ", amount, " Initial Currency: ", start, " End Currency: ", end, "Converted Amount: ", output)
+    #print(c.get_rates('USD'))
 
 root = tk.Tk()
 root.title("Currency Converter")
+root.configure(background='wheat3')
 
-money_label = tk.Label(root, text="Enter the monetary amount to be converted")
-money_entry = tk.Entry(root)
+
+money_label = tk.Label(root, fg="navy", text="Enter the monetary amount to be converted")
+money_entry = tk.Entry(root, bg="MistyRose2")
 curr_label_start = tk.Label(root, text="Choose your starting currency")
-curr_start_combobox = ttk.Combobox(root, values=[" ", "USD", "INR", "BGN", "ILS", "GBP", "DKK", "CAD", "JPY", "HUF", "RON", "EUR", "HKD", "AUD", "CNY", "PHP"])
+curr_start_combobox = ttk.Combobox(root, font=('Helvetica', 15, 'bold'), values=[" ", "USD", "INR", "BGN", "ILS", "GBP", "DKK", "CAD", "JPY", "HUF", "RON", "EUR", "HKD", "AUD", "CNY", "PHP"])
 curr_label_end = tk.Label(root, text="Choose the currency you wish to convert to")
-curr_end_combobox = ttk.Combobox(root, values=[" ", "USD", "IDR", "BGN", "ILS", "GBP", "DKK", "CAD", "JPY", "HUF", "RON", "EUR", "HKD", "AUD", "CNY", "PHP"])
-enter_button = tk.Button(root, text="Convert", command= enter_data)
+curr_end_combobox = ttk.Combobox(root, font=('Helvetica', 15, 'bold'), values=[" ", "USD", "IDR", "BGN", "ILS", "GBP", "DKK", "CAD", "JPY", "HUF", "RON", "EUR", "HKD", "AUD", "CNY", "PHP"])
+enter_button = tk.Button(root, font=('arial', 15, 'bold'), text="Convert",  bg="magenta4", fg="OliveDrab4", command= enter_data)
 
 
 money_label.pack(padx=5, pady=5, side=tk.LEFT)
