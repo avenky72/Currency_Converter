@@ -1,4 +1,4 @@
-# Currency_Converter
+# Currency Converter
 Currency converter project to gain more experience with APIs and learn tkinter
 
 Errors with : RatesNotAvailableError("Currency Rates Source Not Ready") forex_python.converter.RatesNotAvailableError: Currency Rates Source Not Ready
